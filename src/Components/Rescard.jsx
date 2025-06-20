@@ -34,6 +34,7 @@ function Rescard({ resData }) {
   );
 }
 
+// higher order component
 export const PromotedComp = (Rescard)=>{
   return (props)=>{
     return (

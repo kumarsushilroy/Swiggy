@@ -3,7 +3,7 @@ import Search from "./Search";
 import Shimer from "./Shimer";
 import Rescard, { PromotedComp} from "./Rescard";
 import { useEffect, useState } from "react";
-import Header from "./Header";
+
 import { CDN_URL } from "../../Utils/constants";
 import { Link } from "react-router-dom";
 
@@ -44,7 +44,8 @@ const Body = () => {
     setSearchText(e.target.value);
     setFilteredRes(handleSearch);
   };
-
+  
+  // higher order component
   const Promotedcomp = PromotedComp(Rescard);
 
   return (
