@@ -69,7 +69,7 @@ const Body = () => {
         <div className="flex p-2 gap-2 bg-amber-50  w-full">
           {filteredRes?.map((item) => (
             <Link to={"/restaurent/" + item?.info?.id}>
-            {item?.info?.name=='Pizza Hut'?<Promotedcomp resData={item} />:<Rescard key={item?.info?.id} resData={item} />}  
+            {item?.info?.name=='Pizza Hut'?<Promotedcomp  key={item?.info?.id} resData={item} />:<Rescard key={item?.info?.id} resData={item} />}  
             </Link>
 
            

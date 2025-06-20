@@ -6,12 +6,13 @@ const ResmenuList = ({ data }) => {
 
   const cardData = data?.card?.card;
   return (
-    <div className="flex flex-col items-center justify-center">
+    // <div className="flex flex-col items-center justify-center">
+        <div className="w-6/12 p-2 ">
       <span
         onClick={() => setShowList(!showList)}
-        className="bg-gray-100 p-3 m-1 w-6/12 rounded-lg cursor-pointer "
+        className="cursor-pointer "
       >
-        <span className="justify-between flex">
+        <span className="justify-between flex bg-gray-50 p-3 rounded-lg w-full">
           <p className="font-bold">
             {cardData?.title}({cardData?.itemCards?.length})
           </p>
