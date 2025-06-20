@@ -4,10 +4,13 @@ import { useParams } from "react-router-dom";
 import Shimer from "./Shimer";
 import ResmenuList from "./ResmenuList";
 import usecallApi from "../../Utils/hooks/usecallApi";
+import { useState } from "react";
 
 const RestaurentMenu = () => {
   const params = useParams();
   const { resId } = params;
+  const [showIndex , setShowIndex] = useState(1)
+  const [showList , setShowList] = useState(false);
 
   const resMenuData = usecallApi(resId);
   console.log("RESMENu==", resMenuData);
@@ -38,7 +41,7 @@ const RestaurentMenu = () => {
             {resData?.name}, {resData?.city}
           </p>
         </span>
-        {itemCategories?.map((item) => (
+        {itemCategories?.map((item, index) => (
           <ResmenuList key={item?.card?.card?.categoryId} data={item} />
         ))}
       </div>

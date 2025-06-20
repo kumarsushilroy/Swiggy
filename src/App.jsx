@@ -3,7 +3,6 @@ import Sidebar from "./Components/Sidebar";
 import resData from "../Utils/resData.json";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addRestaurant } from "../Store/restaurantslice";
 import Rescard from "./Components/Rescard";
 import Search from "./Components/Search";
 import Shimer from "./Components/Shimer";

@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import ItemList from "./ItemList";
 
 const ResmenuList = ({ data }) => {
-  const [showList, setShowList] = useState(false);
 
+const [showList, setShowList] = useState(false);
+
+ const handleClick = ()=>{
+    setShowList(!showList);
+ }
   const cardData = data?.card?.card;
   return (
     // <div className="flex flex-col items-center justify-center">
         <div className="w-6/12 p-2 ">
       <span
-        onClick={() => setShowList(!showList)}
+        onClick={handleClick}
         className="cursor-pointer "
       >
         <span className="justify-between flex bg-gray-50 p-3 rounded-lg w-full">
