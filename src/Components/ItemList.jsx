@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../Store/cartSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 function ItemList({ listData }) {
   const dispatch = useDispatch();
@@ -7,6 +8,7 @@ function ItemList({ listData }) {
   const addCartItem = (item) => {
     const cardInfo = item.card.info;
     dispatch(addItem(cardInfo));
+    toast.success("item added to cart");
   };
 
   return (
@@ -21,13 +23,18 @@ function ItemList({ listData }) {
             <p>Price: {item.card.info.price / 10}</p>
             <p>{item.card.info.description}</p>
           </span>
+
+           
+
           <span className="w-48 rounded-2xl border">
-            <button
+           <button
               onClick={() => addCartItem(item)}
               className="absolute cursor-pointer p-2 rounded-lg bg-black font-bold text-white"
             >
-              Add+
+              Add +
             </button>
+              
+           
             <img
               className="w-full object-cover overflow-hidden rounded-2xl"
               src={

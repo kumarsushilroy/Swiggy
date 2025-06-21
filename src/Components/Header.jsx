@@ -1,9 +1,17 @@
 
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { showCartMethod } from "../../Store/cartSlice";
 
 const Header = ()=>{
+
+  const dispatch = useDispatch();
+
+  const handleCartShowStatus = ()=>{
+    dispatch(showCartMethod());
+  }
+
   const cartItem = useSelector((store)=>store?.cart?.items.length)
   console.log('conosleeee',useSelector((store)=>store.cart.item));
  return(
@@ -15,9 +23,9 @@ const Header = ()=>{
         
          
         <div className="flex gap-3 text-xl ">
-          <span className="flex ">
+          <span onClick={handleCartShowStatus} className="flex cursor-pointer">
             <p className="relative">Cart</p>
-             <span className="  flex mt items-center absolute ml-4 top-5  justify-center bg-orange-600 text-white w-7 h-7 rounded-full p-2 text-center">{cartItem}</span>
+             <span className="  flex mt items-center font-bold absolute  ml-4 top-5  justify-center bg-orange-600  text-white w-7 h-7 rounded-full p-3 text-center">{cartItem}</span>
            <span >
             
            
