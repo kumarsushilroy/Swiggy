@@ -10,18 +10,22 @@ const CartList = ({ showCartStatus }) => {
     dispatch(removeItem(item));
   };
 
-  const closeCart = ()=>{
-    dispatch(showCartMethod())
-  }
+  const closeCart = () => {
+    dispatch(showCartMethod());
+  };
 
   const listItems = useSelector((store) => store.cart.items);
 
   return (
     <div>
-      {
-        listItems.length && showCartStatus? (
-           <span className="flex flex-col  absolute right-1 z-10 bg-white  mt-5 shadow-lg rounded-2xl w-6/12 justify-self-end ">
-            <button onClick={closeCart} className="flex cursor-pointer absolute text-2xl right-3 mb-4">X</button>
+      {listItems.length && showCartStatus ? (
+        <span className="flex flex-col h-[450px] absolute overflow-y-scroll right-1 z-10 bg-white  mt-5 shadow-lg rounded-2xl w-6/12 justify-self-end ">
+          <button
+            onClick={closeCart}
+            className="flex cursor-pointer absolute text-2xl right-3 mb-4"
+          >
+            X
+          </button>
           <span className="flex justify-around bg-orange-300 p-2">
             <p>Name</p>
             <p>Category</p>
@@ -30,7 +34,7 @@ const CartList = ({ showCartStatus }) => {
             <p>Action</p>
           </span>
           {listItems?.map((item) => (
-            <span className="flex p-2 items-center  justify-around">
+            <span className="flex p-2 items-center justify-around ">
               <p>{item.name}</p>
               <p>{item.category}</p>
               <p>{item.price}</p>
@@ -53,17 +57,20 @@ const CartList = ({ showCartStatus }) => {
             </span>
           ))}
         </span>
-        ):(
-           <span className="flex flex-col h-28 justify-center absolute right-1 z-10 bg-white  mt-5 shadow-lg rounded-2xl w-6/12 justify-self-end ">
-              
-                <button onClick={closeCart} className="flex cursor-pointer absolute text-2xl right-3 mb-4">X</button>
-             
-              <h1 className="text-center text-2xl text-orange-500">No Items Added Yet 🙄😶</h1>
-           </span>
-        )
-      }
-       
-      
+      ) : (
+        <span className="flex flex-col h-28 justify-center absolute right-1 z-10 bg-white  mt-5 shadow-lg rounded-2xl w-6/12 justify-self-end ">
+          <button
+            onClick={closeCart}
+            className="flex cursor-pointer absolute text-2xl right-3 mb-4"
+          >
+            X
+          </button>
+
+          <h1 className="text-center text-2xl text-orange-500">
+            No Items Added Yet 🙄😶
+          </h1>
+        </span>
+      )}
     </div>
   );
 };
