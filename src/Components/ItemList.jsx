@@ -1,18 +1,33 @@
-import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../Store/cartSlice";
 
 function ItemList({ listData }) {
-  console.log("listdata", listData);
+  const dispatch = useDispatch();
+
+  const addCartItem = (item) => {
+    const cardInfo = item.card.info;
+    dispatch(addItem(cardInfo));
+  };
 
   return (
     <div>
       {listData?.map((item) => (
-        <span className=" flex bg-white justify-between p-3 items-center mt-2">
+        <span
+          key={item?.card.info.id}
+          className=" flex bg-white justify-between p-3 items-center mt-2"
+        >
           <span className="flex flex-col border-b-2">
             <p>{item.card.info.name}</p>
             <p>Price: {item.card.info.price / 10}</p>
             <p>{item.card.info.description}</p>
           </span>
           <span className="w-48 rounded-2xl border">
+            <button
+              onClick={() => addCartItem(item)}
+              className="absolute cursor-pointer p-2 rounded-lg bg-black font-bold text-white"
+            >
+              Add+
+            </button>
             <img
               className="w-full object-cover overflow-hidden rounded-2xl"
               src={

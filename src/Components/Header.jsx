@@ -1,8 +1,11 @@
 
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
+
 const Header = ()=>{
-  console.log('conosleeee',useSelector((state)=>state.restaurant));
+  const cartItem = useSelector((store)=>store?.cart?.items.length)
+  console.log('conosleeee',useSelector((store)=>store.cart.item));
  return(
     <>
     <div className="flex gap-4 justify-between items-center p-3 shadow-lg py-5">
@@ -11,7 +14,15 @@ const Header = ()=>{
         
         
          
-        <div className="flex gap-3 text-xl">
+        <div className="flex gap-3 text-xl ">
+          <span className="flex ">
+            <p className="relative">Cart</p>
+             <span className="  flex mt items-center absolute ml-4 top-5  justify-center bg-orange-600 text-white w-7 h-7 rounded-full p-2 text-center">{cartItem}</span>
+           <span >
+            
+           
+            </span> 
+          </span>
          <Link to='/about'><h1>About</h1></Link> 
          <Link to='/contact'><h1>Contact Us</h1></Link>  
            <Link to='/services'><h1>Services</h1></Link> 
